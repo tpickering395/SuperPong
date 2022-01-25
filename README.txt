@@ -1,3 +1,8 @@
+Git controlled version of SuperPong project.
+
+Made by: Ayah League, Thomas Pickering, and Noel Villalpando
+
+
 What is contained in this directory:
 -The game's executable file along with its required resources as a .pck file. They must be within the same directory to run properly.
 -The full godot project of the game, including source code and assets.
