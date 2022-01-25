@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Main_Menu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Title_Label.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Main_Menu_modded.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+font_data = ExtResource( 2 )
+
+[node name="Main_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title_Label" type="RichTextLabel" parent="."]
+margin_left = 99.0
+margin_top = 34.0
+margin_right = 165.0
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = -1.0
+margin_top = 82.0
+margin_right = 257.0
+margin_bottom = 221.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 81.0
+margin_top = 47.0
+margin_right = 177.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 1, 1 )
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Classic_Start" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 8.0
+focus_neighbour_top = NodePath("../Quit_Button")
+custom_fonts/font = SubResource( 3 )
+text = "Classic Pong"
+
+[node name="Modded_Start" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 12.0
+margin_right = 96.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 4 )
+text = "Super Pong"
+
+[node name="Options_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 96.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 5 )
+text = "Options"
+
+[node name="Quit_Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 96.0
+margin_bottom = 44.0
+focus_neighbour_bottom = NodePath("../Classic_Start")
+custom_constants/hseparation = 0
+custom_fonts/font = SubResource( 6 )
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Classic_Start" to="." method="_on_Classic_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Modded_Start" to="." method="_on_Modded_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Options_Button" to="." method="_on_Options_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit_Button" to="." method="_on_Quit_Button_pressed"]

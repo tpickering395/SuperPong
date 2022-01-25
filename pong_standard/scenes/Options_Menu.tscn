@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Options_Menu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/MusicCheckBox.gd" type="Script" id=2]
+[ext_resource path="res://scenes/SoundCheckBox.gd" type="Script" id=3]
+[ext_resource path="res://fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/options_theme.tres" type="Theme" id=5]
+[ext_resource path="res://scenes/MusicVolumeSlider.gd" type="Script" id=6]
+[ext_resource path="res://scenes/EffectVolumeSlider.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 9
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 4 )
+
+[node name="Options_Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 49.0
+margin_top = 182.0
+margin_right = 211.0
+margin_bottom = 240.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicCheckBox" type="CheckBox" parent="VBoxContainer"]
+margin_right = 162.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "Music"
+script = ExtResource( 2 )
+
+[node name="SoundCheckBox" type="CheckBox" parent="VBoxContainer"]
+margin_top = 20.0
+margin_right = 162.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+text = "Sound"
+script = ExtResource( 3 )
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 3 )
+text = "Confirm & Return"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 73.0
+margin_top = 15.0
+margin_right = 198.0
+margin_bottom = 36.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeSlider" type="HSlider" parent="."]
+margin_left = 43.0
+margin_top = 83.0
+margin_right = 216.0
+margin_bottom = 99.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EffectVolumeSlider" type="HSlider" parent="."]
+margin_left = 44.0
+margin_top = 133.0
+margin_right = 220.0
+margin_bottom = 149.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 53.0
+margin_top = 65.0
+margin_right = 211.0
+margin_bottom = 82.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "Music Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 50.0
+margin_top = 121.0
+margin_right = 208.0
+margin_bottom = 132.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "Effect Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="VBoxContainer/MusicCheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer/MusicCheckBox" to="." method="_on_MusicCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer/SoundCheckBox" to="." method="_on_SoundCheckBox_toggled"]
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="value_changed" from="MusicVolumeSlider" to="MusicVolumeSlider" method="_on_value_changed"]
+[connection signal="mouse_exited" from="EffectVolumeSlider" to="EffectVolumeSlider" method="_on_mouse_exit"]
+[connection signal="value_changed" from="EffectVolumeSlider" to="EffectVolumeSlider" method="_on_value_changed"]

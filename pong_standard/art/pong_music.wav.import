@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pong_music.wav-2d847e2e5ac9051137285bba971e7839.sample"
+
+[deps]
+
+source_file="res://art/pong_music.wav"
+dest_files=[ "res://.import/pong_music.wav-2d847e2e5ac9051137285bba971e7839.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

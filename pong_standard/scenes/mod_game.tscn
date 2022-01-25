@@ -1,0 +1,218 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://scenes/ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/game_modded.gd" type="Script" id=2]
+[ext_resource path="res://scenes/paddle_R.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/paddle_L.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/Paddle.png" type="Texture" id=6]
+[ext_resource path="res://scripts/paddle_L (1).gd" type="Script" id=7]
+[ext_resource path="res://Extra Ball.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Extra Ball.gd" type="Script" id=9]
+[ext_resource path="res://art/Ball.png" type="Texture" id=10]
+[ext_resource path="res://Fire Hoop.png" type="Texture" id=11]
+[ext_resource path="res://scenes/Boomerang.gd" type="Script" id=12]
+[ext_resource path="res://scenes/NewBall.gd" type="Script" id=13]
+[ext_resource path="res://scenes/Fire Hoop.gd" type="Script" id=14]
+[ext_resource path="res://boomerang.png" type="Texture" id=15]
+[ext_resource path="res://scripts/ball_mod.gd" type="Script" id=16]
+[ext_resource path="res://art/player_score.wav" type="AudioStream" id=17]
+[ext_resource path="res://art/hit.wav" type="AudioStream" id=18]
+[ext_resource path="res://art/opponent_score.wav" type="AudioStream" id=19]
+[ext_resource path="res://art/Super_Pong_Song.mp3" type="AudioStream" id=20]
+[ext_resource path="res://scenes/PlayerScorePlayer.gd" type="Script" id=21]
+[ext_resource path="res://scenes/OpponentScorePlayer.gd" type="Script" id=22]
+[ext_resource path="res://scenes/GameMusicPlayer.gd" type="Script" id=23]
+[ext_resource path="res://scenes/HitPlayer2D.gd" type="Script" id=24]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 210.845, 211.647 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 7 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3.28125, 6.375 )
+
+[node name="game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ball" parent="." instance=ExtResource( 1 )]
+position = Vector2( -37, -22 )
+script = ExtResource( 16 )
+
+[node name="HitPlayer2D" type="AudioStreamPlayer2D" parent="ball"]
+position = Vector2( 37, 22 )
+stream = ExtResource( 18 )
+script = ExtResource( 24 )
+
+[node name="paddle_L" parent="." instance=ExtResource( 4 )]
+position = Vector2( -14, -19 )
+script = ExtResource( 7 )
+
+[node name="Sprite" parent="paddle_L" index="0"]
+position = Vector2( 0, 0 )
+
+[node name="paddle_R" parent="." instance=ExtResource( 3 )]
+position = Vector2( -99, 27 )
+
+[node name="Sprite" parent="paddle_R" index="0"]
+region_rect = Rect2( 2, 16, 0, 0 )
+
+[node name="ui" parent="." instance=ExtResource( 5 )]
+
+[node name="SeperatingLine" type="KinematicBody2D" parent="."]
+position = Vector2( 4, -5 )
+
+[node name="Sprite" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 17 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 37 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 57 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 77 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 97 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite6" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 117 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite7" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 137 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite8" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 157 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite9" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 177 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite10" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 197 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite11" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 217 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="SeperatingLine"]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 127, 237 )
+scale = Vector2( 1, 0.625 )
+texture = ExtResource( 6 )
+
+[node name="NewBall" type="KinematicBody2D" parent="."]
+position = Vector2( -123, -40 )
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="NewBall"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewBall"]
+shape = SubResource( 3 )
+
+[node name="HitPlayer2D2" type="AudioStreamPlayer2D" parent="NewBall"]
+position = Vector2( 123, 40 )
+stream = ExtResource( 18 )
+script = ExtResource( 24 )
+
+[node name="Fire Hoop" type="Area2D" parent="."]
+position = Vector2( -51.7968, 39.3696 )
+scale = Vector2( 0.0355711, 0.0330739 )
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Fire Hoop"]
+position = Vector2( -5.71387, -11.1744 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire Hoop"]
+position = Vector2( -5.71375, -11.1743 )
+shape = SubResource( 4 )
+
+[node name="Extra Ball" type="Area2D" parent="."]
+position = Vector2( -96, -15 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Extra Ball"]
+scale = Vector2( 0.0358974, 0.0353932 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Extra Ball"]
+shape = SubResource( 1 )
+
+[node name="Boomerang" type="Area2D" parent="."]
+position = Vector2( -178, 37 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="Boomerang"]
+scale = Vector2( 0.0205592, 0.0203536 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boomerang"]
+shape = SubResource( 5 )
+
+[node name="ModMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+script = ExtResource( 23 )
+
+[node name="OpponentScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+script = ExtResource( 22 )
+
+[node name="PlayerScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+script = ExtResource( 21 )
+
+[connection signal="respawn_ball" from="ui" to="." method="_on_ui_respawn_ball"]
+[connection signal="restart" from="ui" to="." method="_on_ui_restart"]
+[connection signal="score" from="ui" to="ball" method="_on_ui_score"]
+[connection signal="body_entered" from="Fire Hoop" to="Fire Hoop" method="_on_Fire_Hoop_body_entered"]
+[connection signal="body_entered" from="Extra Ball" to="Extra Ball" method="_on_Extra_Ball_body_entered"]
+[connection signal="body_entered" from="Boomerang" to="Boomerang" method="_on_Boomerang_body_entered"]
+
+[editable path="ball"]
+[editable path="paddle_L"]
+[editable path="paddle_R"]
